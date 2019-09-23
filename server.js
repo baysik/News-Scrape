@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
@@ -11,7 +12,7 @@ const cheerio = require("cheerio");
 // Require all models
 const db = require("./models");
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Initialize Express
 const app = express();
@@ -24,14 +25,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-require("dotenv").config();
 let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/NYT-Scrape";
-// DB connection
-require('dotenv').config()
-var db = require("./models");
-var MONGODB_URI = process.env.MONGODB_URI;
-mongoose.connect(MONGODB_URI),
-.then(()=>console.log("DB connected"))`
 
 mongoose.connect(MONGODB_URI);
 
