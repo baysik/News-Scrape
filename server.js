@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/NYT-Scrape", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/NYT-Scrape", {
   useNewUrlParser: true
 });
 
