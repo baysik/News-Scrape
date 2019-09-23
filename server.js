@@ -26,6 +26,12 @@ app.use(express.static("public"));
 // Connect to the Mongo DB
 require("dotenv").config();
 let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/NYT-Scrape";
+// DB connection
+require('dotenv').config()
+var db = require("./models");
+var MONGODB_URI = process.env.MONGODB_URI;
+mongoose.connect(MONGODB_URI),
+.then(()=>console.log("DB connected"))`
 
 mongoose.connect(MONGODB_URI);
 
