@@ -24,9 +24,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/NYT-Scrape", {
-  useNewUrlParser: true
-});
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/NYT-Scrape";
+
+mongoose.connect(MONGODB_URI);
 
 // Handlebars
 app.engine(
